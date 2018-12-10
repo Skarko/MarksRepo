@@ -1,0 +1,78 @@
+﻿@model List<EADMusicStore.Models.Album>
+@{
+    ViewBag.Title = "ASP.NET MVC Music Store";
+}
+
+<div class=" jumbotron visible-md visible-lg">
+    <h1> <font style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;" color=#000040> Music Store</font></h1>
+    <p><span class="alert-success">Welcome to the Music Store... </span><img src="\img\music.png" height=60 width=60 alt="Music"></p>
+    <!-- Example drop down action button -->
+    <div class="btn-group">
+        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Action
+        </button>
+        <div class="dropdown-menu">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Separated link</a>
+        </div>
+    </div>
+</div>
+
+
+<div id="promotion">
+</div>
+
+<div class="row">
+    <div class=" col-md-6">
+        <h2>Top selling albums</h2>
+        <p>
+            <ul id="album-list">
+                @foreach (var album in Model)
+                {
+                    <li>
+                        <a href="@Url.Action("Details", "Store",
+                new { id = album.AlbumId })">
+                            <img alt="@album.Title" src="@album.AlbumArtUrl" />
+                            <span>@album.Title</span>
+                        </a>
+                    </li>
+                }
+
+            </ul>
+        </p>
+    </div>
+
+
+    <div class=" col-md-3">
+        <h3>Songwriters, composers and music publishers</h3>
+        <p>
+            IMRO is a national organisation that administers the performing right in copyright music in Ireland <br />
+            on behalf of its members (songwriters, composers and music publishers) and on behalf of members of the international overseas societies that are affiliated to it. Music users such as broadcasters, venues and businesses must pay for their use of copyright music by way of a blanket licence fee
+        </p>
+        <p>
+            <a href="https://www.imro.ie/" button type="submit" class="btn btn-danger" role="button">IMRO</a></button>
+
+        </p>
+    </div>
+
+
+    <div class=" col-md-3">
+        <h3>How to Get Playlisted</h3>
+        <p>
+            You can also browse through the music collections of friends, artists and celebrities, or create a radio station
+            You’re not just making music for yourself — <a href="https://artists.spotify.com/videos/the-game-plan/how-to-get-playlisted" class="btn btn-default btn-lg disabled" role="button"> you want to get heard </a> which means you want to get on playlists. <br />
+            Here's a step-by-step guide to getting your music in front of Spotify's editorial team.
+        </p>
+
+        <p><a href="https://www.spotify.com/ie/" button type="submit" class="btn btn-success btn-xs">Spotify</a></button></p>
+    </div>
+</div>
+
+<div class="alert alert-primary" role="alert">
+    Check it out these websites for more information <br />- by clicking on the buttons!
+</div>
+
+
